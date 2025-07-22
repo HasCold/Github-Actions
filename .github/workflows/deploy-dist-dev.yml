@@ -1,0 +1,12 @@
+name: hasco-dev-cicd
+
+on: [push, workflow_dispatch]
+jobs: 
+    test:
+        runs-on: ubuntu-latest
+        steps: 
+            - name: Get Code
+              run: |  # through the | multiple operations can be performed. github keyword is a reserved context which enquotes in a special syntax.
+                echo: "cloning repo .."
+                echo "${{toJson(github)}}"  
+                git clone https://github.com/${{github.repository}}.git

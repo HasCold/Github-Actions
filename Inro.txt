@@ -23,3 +23,5 @@ Job 3 :- To deploy the react project.
 ---------------------------------------------------------------------------------
 
 - The .yml script runner can run on a separate remote-machine(github hosted runner).
+
+Important reference :- https://docs.github.com/en/actions/reference/events-that-trigger-workflows 
