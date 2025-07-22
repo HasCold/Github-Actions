@@ -1,0 +1,25 @@
+What is Github Actions ?
+. Automation service for repository related processes.
+. just like another cicd tool like jenkins.
+
+Continuous Integration                                  |       Continuous Deployment 
+
+code push --->>> unit test --->>> security scan (code quality) --->>> build --->>> deploy --->>>  
+
+
+
+What is workflow ?
+. Worklow is a process contains one or more jobs.
+. Worklow will be attached to a repository.
+. One repository can have multiple repository.
+. job is just like a task eg. test, build etc.
+
+For example :- A workflow to deploy a react application.
+
+Job 1 :- To run all the test cases.
+Job 2 :- To build the react project.
+Job 3 :- To deploy the react project.
+
+---------------------------------------------------------------------------------
+
+- The .yml script runner can run on a separate remote-machine(github hosted runner).
