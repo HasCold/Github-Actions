@@ -2,7 +2,7 @@ name: hasco-dev-cicd
 
 on: push
 jobs: 
-    greet: 
+    build-publish-and-deploy: 
         runs-on: ubuntu-latest
         steps: 
             - name: "greet user"
