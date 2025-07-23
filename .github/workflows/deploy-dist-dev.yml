@@ -1,13 +1,31 @@
-# through the | multiple operations can be performed. github keyword is a reserved context which enquotes in a special syntax.
 name: hasco-dev-cicd
 
 on: [push, workflow_dispatch]
 jobs: 
-    test:
-        runs-on: ubuntu-latest
-        steps: 
-            - name: Get Code
-              run: |  
-                echo "cloning repo .."
-                echo "${{toJson(github)}}"  
-                git clone https://github.com/${{github.repository}}.git
+  test:
+    runs-on: ubuntu-latest  # runs on ubuntu remote server
+    steps: 
+      # checkout action is used to clone the repo on the remote (ubuntu) server.
+      - name: Get Code
+        uses: actions/checkout@v4
+        # Instead of writing our own action below for cloning the repo on the remote server, we can use pre-built actions from github marketplace i.e. checkout action.
+        # through the | multiple operations can be performed. github keyword is a reserved context which enquotes in a special syntax.
+        # run: |  
+        #   echo "cloning repo .."
+        #   echo "${{toJson(github)}}"  
+        #   git clone https://github.com/${{github.repository}}.git
+
+      - name: Install Node.js v-20 
+        uses: actions/setup-node@v4
+        with: 
+          node-version: 20
+      - name: print node version
+        run: node -v
+
+      # Install the dependencies bc we have to run the test case via the vitest package. 
+      # Rather than using the npm install use npm ci (clean install) main difference :- install will use the package.json file but npm ci will use the package-lock.json file which doesn't update our minor and patch version automatically we want exact version to be installed.
+      - name: Install dependencies
+        run: npm ci  # recommended way
+
+      - name: Run test cases
+        run: npm run test # test is the script which is in our packgae.json
