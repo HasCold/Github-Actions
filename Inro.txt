@@ -31,3 +31,6 @@ Important references :-
 - Github Expression Syntax :- https://docs.github.com/en/actions/reference/evaluate-expressions-in-workflows-and-actions e.g. :- toJson etc 
 
 - Github Marketplace :- https://github.com/marketplace/actions
+---------------------------------------------------------------------------------
+
+Suppose we only do a comment in the code and push on the branch so we don't need to run the worklow unncessary for that comment instead we can skip 

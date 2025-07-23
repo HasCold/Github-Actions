@@ -1,9 +1,11 @@
-name: hasco-dev-cicd
+name: hasco-test-dev
 
 on: push
 jobs: 
     build-publish-and-deploy: 
+        name: Build and Publish
         runs-on: ubuntu-latest
+
         steps: 
             - name: "greet user"
               run: echo "Greeting from github actions to HasCo"
