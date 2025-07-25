@@ -2,8 +2,8 @@ name: hasco-deploy-dev
 
 on: [push, workflow_dispatch]
 jobs: 
-  build-publish-and-deploy: # Job name
-    name: Build and Publish
+  build-publish-and-deploy: # Job 
+    name: Build and Publish # Job name
     runs-on: ubuntu-latest  # runs on ubuntu remote server
     
     steps: 
@@ -33,7 +33,8 @@ jobs:
         run: npm run test # test is the script which is in our packgae.json
       
   # Different job for deployement because we have to build version of the project. 
-  deploy: 
+  deploy: # Job
+    name: Deploy # Job name
     needs: build-publish-and-deploy  # If we want to run the jobs in a squential order so we can used the needs keyword and then pass the name of the first job.
     runs-on: ubuntu-latest
     steps:
