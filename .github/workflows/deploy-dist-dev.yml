@@ -2,7 +2,7 @@ name: hasco-deploy-dev
 
 on: [push, workflow_dispatch]
 jobs: 
- build-publish-and-deploy: 
+  build-publish-and-deploy: # Job name
     name: Build and Publish
     runs-on: ubuntu-latest  # runs on ubuntu remote server
     
@@ -31,3 +31,28 @@ jobs:
 
       - name: Run test cases
         run: npm run test # test is the script which is in our packgae.json
+      
+  # Different job for deployement because we have to build version of the project. 
+  deploy: 
+    needs: build-publish-and-deploy  # If we want to run the jobs in a squential order so we can used the needs keyword and then pass the name of the first job.
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone the code on remote server for deployment
+        uses: actions/checkout@v4
+
+      - name: Install Node.js v-20
+        uses: actions/setup-node@v4
+        with: 
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci # recommended way instead of npm install
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Deploy the project 
+        run:  |
+         echo "Deploying the project ..."
+         echo "Deployment successful" 
+        

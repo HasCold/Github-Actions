@@ -33,4 +33,7 @@ Important references :-
 - Github Marketplace :- https://github.com/marketplace/actions
 ---------------------------------------------------------------------------------
 
-Suppose we only do a comment in the code and push on the branch so we don't need to run the worklow unncessary for that comment instead we can skip 
+Suppose we only do a comment in the code and push on the branch so we don't need to run the worklow unncessary for that comment instead we can skip :-
+
+- react_deployment git:(main) git add .
+- react_deployment git:(main) ✗ git commit -m "added comment [skip ci]"
