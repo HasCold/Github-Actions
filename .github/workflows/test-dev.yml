@@ -1,6 +1,7 @@
 name: hasco-test-dev
 
-on: push
+# on: push
+on: workflow_dispatch
 jobs: 
     build-publish-and-deploy: 
         name: Build and Publish
