@@ -55,5 +55,5 @@ jobs:
       - name: Deploy the project 
         run:  |
          echo "Deploying the project ..."
-         echo "Deployment successful" 
+         echo "Deployment successful..." 
         
